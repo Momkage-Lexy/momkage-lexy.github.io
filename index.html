@@ -16,6 +16,11 @@
         width: 600px; /* Fixed width for paragraph content */
         height: 200px; /* Fixed height - overflows content */
         overflow: hidden; /* Cut off text that overflows */
+        width: 600px; /* Fixed width for paragraphs */
+        background-color: #00FF00;
+        color: #FF0000;
+        text-align: justify;
+        font-size: 10px;
     }
     img { 
         width: 500px; /*Non-responsive image size*/
@@ -28,26 +33,66 @@
     }
     body {
             background-color: #ffffff;
-            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            font-family: "Comic Sans";
+            width: 1200px; /* Fixed width */
+            min-height: 100vh;
+            overflow-x: scroll; /* Forces horizontal scrolling */
+            font-size: 16px;
+            background-color: #ffffff;
         }
-    h2 {
-        color: #ffffff !important;
-        font-weight: 100;
+    /* Disable viewport scaling */
+    meta[name="viewport"] {
+        content: "width=1024, initial-scale=1.0";
     }
-    p {
-        color: #FF0000;
-        background-color: #00FF00;
-        font-size: 10px; 
-        text-align: justify; 
+    .container {
+    width: 1000px; /* Fixed width */
+    margin: auto;
     }
-    .hard-to-read-text {
-        color: #FFFFFF;
+        h2 {
+            color: #ffffff !important;
+            font-weight: 100;
+        }
+        .hard-to-read-text {
+            color: #FFFFFF;
+        }
+        .bad-button {
+            background-color: #0000FF;
+            color: #0000FF; 
+            font-size: 8px; 
+        }
+
+
+    /* 🔴 Non-responsive navigation */
+    .nav {
+        width: 100%;
+        background-color: black;
+        color: white;
+        font-size: 20px;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
     }
-    .bad-button {
-        background-color: #0000FF;
-        color: #0000FF; 
-        font-size: 8px; 
+
+    .nav a {
+        color: white;
+        text-decoration: none;
+        padding: 5px;
     }
+
+
+
+    /* 🔴 Overlapping sections */
+    .section {
+        position: absolute;
+        left: 500px; /* Forces overlap */
+        top: 200px;
+    }
+
+    /* 🚨 Forces horizontal scrolling */
+    .wide-content {
+        width: 1500px; /* Forces scroll on mobile */
+    }
+
     </style>
 </head>
 <body>
@@ -128,6 +173,42 @@
         <p>This text is hard to read due to poor contrast and bad color balance.</p>
         <p class="hard-to-read-text">This text is also hard to read.</p>
         <button class="bad-button">Click me if you can read this.</button>
+        <h1></h1>
+        <h3></h3>
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Services</a>
+        </div>
+    
+        <h1>Site Title</h1>
+        <h4>Section Header</h4>
+        <h3>Section Subheader</h3>
+    
+        <a href="https://www.dfdsfsdfsdfsdfsdfhghfghf.org/">Invalid Link</a>
+    
+        <p class="small-text">This text is way too small to read comfortably on most devices.</p>
+    
+        <div class="section">
+            <p class="bad-paragraph">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Vestibulum non sem nisi. Proin tincidunt tincidunt risus at imperdiet.
+            </p>
+            <img src="https://via.placeholder.com/500x300">
+        </div>
+    
+        <div class="wide-content">
+            <p>
+                This content forces horizontal scrolling because of its wide width.
+            </p>
+        </div>
+    
+        <h2>Invisible Header</h2>
+        <p class="hard-to-read-text">This text is hard to read due to poor contrast.</p>
+        
+        <button class="bad-button">Click me if you can read this.</button>
+    
         <h1></h1>
         <h3></h3>
     </body>
