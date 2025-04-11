@@ -87,7 +87,32 @@
     .wide-content {
         width: 1500px; /* Forces scroll on mobile */
     }
-
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #000;
+      position: relative;
+    }
+    .close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 24px;
+      cursor: pointer;
+    }
     </style>
 </head>
 <body>
@@ -127,6 +152,26 @@
         augue lacus sem eros; nibh posuere maximus. Justo justo justo ad elit curabitur neque torquent.Lorem ipsum odor
         amet, consectetuer adipiscing elit. Viverra inceptos sodales pharetra nunc nisl feugiat. Tempus
         augue lacus sem eros; nibh posuere maximus. Justo justo justo ad elit curabitur neque torquent.</p>
+  <h1>Popup Demo</h1>
+  <button id="openPopupBtn">Open Popup 2</button>
+
+  <!-- Popup 1 -->
+  <div id="popup1" class="popup">
+    <div class="popup-content">
+      <span class="close" data-close="popup1">&times;</span>
+      <h2>Popup 1</h2>
+      <p>This popup appeared after 3 seconds!</p>
+    </div>
+  </div>
+
+  <!-- Popup 2 -->
+  <div id="popup2" class="popup">
+    <div class="popup-content">
+      <span class="close" data-close="popup2">&times;</span>
+      <h2>Popup 2</h2>
+      <p>This popup appeared after clicking a button!</p>
+    </div>
+  </div>
 
     <h5>Section Header</h5>
     <h1>Section Subheader</h1>
@@ -206,4 +251,24 @@
     
         <h1></h1>
         <h3></h3>
+      <script>
+    // Show popup 1 after 3 seconds
+    setTimeout(() => {
+      document.getElementById("popup1").style.display = "flex";
+    }, 3000);
+
+    // Open popup 2 on button click
+    document.getElementById("openPopupBtn").addEventListener("click", () => {
+      document.getElementById("popup2").style.display = "flex";
+    });
+
+    // Close popups
+    document.querySelectorAll(".close").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const popupId = btn.getAttribute("data-close");
+        document.getElementById(popupId).style.display = "none";
+      });
+    });
+  </script>
     </body>
+</html>
