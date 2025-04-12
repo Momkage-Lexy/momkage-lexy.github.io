@@ -113,6 +113,19 @@
       font-size: 24px;
       cursor: pointer;
     }
+    @keyframes zoomIn {
+      to { transform: scale(1); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    @keyframes slideIn {
+      to { transform: translateX(0); }
+    }
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
     </style>
 </head>
 <body>
@@ -172,7 +185,18 @@
       <p>This popup appeared after clicking a button!</p>
     </div>
   </div>
-
+    <div style="animation: fadeIn 2s ease-in-out; opacity: 0; animation-fill-mode: forwards;">
+      This fades in!
+    </div>
+    <div style="animation: slideIn 1.5s ease-out; transform: translateX(-100%); animation-fill-mode: forwards;">
+      This slides in from the left!
+    </div>
+    <div style="animation: bounce 2s infinite;">
+      This bounces!
+    </div>
+    <div style="animation: zoomIn 1.2s ease-in; transform: scale(0); animation-fill-mode: forwards;">
+      This zooms in!
+    </div>
     <h5>Section Header</h5>
     <h1>Section Subheader</h1>
     <a href="https://ggdfhfhgykmngfdertyuilkjhgfd.com/">Another Invalid Link</a>
